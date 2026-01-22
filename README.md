@@ -228,3 +228,6 @@ config
 Active storage
 libvips
 SMTP：gmail
+
+## 画面遷移図
+[Figma](https://www.figma.com/design/F7GnUwk1alxVNno9hX03sj/ofrikgdsk?node-id=13-69&t=HxP8HjxlIMb1Ty5E-1)
