@@ -231,3 +231,6 @@ SMTP：gmail
 
 ## 画面遷移図
 [Figma](https://www.figma.com/design/F7GnUwk1alxVNno9hX03sj/ofrikgdsk?node-id=13-69&t=HxP8HjxlIMb1Ty5E-1)
+
+## ER図
+[ER図](https://dbdiagram.io/d/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9Cofrikgdsk-6794fe44263d6cf9a00aeeb9)
