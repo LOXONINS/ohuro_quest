@@ -1,2 +1,8 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<!-- 100vh(画面の高さ)-64px(ヘッダーの高さ) -->
+<div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center text-center">
+  <h1 class="text-4xl font-bold mb-6">
+    お風呂クエスト
+  </h1>
+
+  <%= link_to "みにいく", "#", class: "px-6 py-3 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition" %>
+</div>
