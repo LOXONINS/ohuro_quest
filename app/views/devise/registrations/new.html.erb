@@ -1,0 +1,59 @@
+<div class="min-h-full flex items-center justify-center py-12">
+  <div class="w-full max-w-md px-4">
+
+    <h1 class="text-2xl font-bold text-center mb-8">
+      新規会員登録
+    </h1>
+
+    <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+
+      <!-- エラーメッセージ -->
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <!-- ユーザー名 -->
+      <div>
+        <%= f.label :name, "ユーザー名",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.text_field :name,
+              autofocus: true,
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+      <!-- メールアドレス -->
+      <div>
+        <%= f.label :email, "メールアドレス",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.email_field :email,
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+      <!-- パスワード -->
+      <div>
+        <%= f.label :password, "パスワード",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.password_field :password,
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+      <!-- パスワード確認 -->
+      <div>
+        <%= f.label :password_confirmation, "パスワード（確認）",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.password_field :password_confirmation,
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+      <!-- 登録ボタン -->
+      <div>
+        <%= f.submit "登録する",
+              class: "w-full bg-black text-white py-2 rounded
+                      hover:bg-gray-800 transition" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="min-h-full flex items-center justify-center py-12">
+  <div class="w-full max-w-md px-4">
+
+    <h1 class="text-2xl font-bold text-center mb-8">
+      ログイン
+    </h1>
+
+    <%= form_for(resource, as: resource_name, url: user_session_path, data: { turbo: false }) do |f| %>
+
+      <!-- エラーメッセージ -->
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <!-- メールアドレス -->
+      <div>
+        <%= f.label :email, "メールアドレス",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.email_field :email,
+              autofocus: true,
+              autocomplete: "email",
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+      <!-- パスワード -->
+      <div>
+        <%= f.label :password, "パスワード",
+              class: "block text-sm font-medium mb-1" %>
+        <%= f.password_field :password,
+              autocomplete: "current-password",
+              class: "w-full rounded border border-gray-300 px-3 py-2 text-sm
+                      focus:outline-none focus:ring-1 focus:ring-gray-400" %>
+      </div>
+
+
+      <!-- ログインボタン -->
+      <div>
+        <%= f.submit "ログイン",
+              class: "w-full bg-black text-white py-2 rounded
+                      hover:bg-gray-800 transition" %>
+      </div>
+
+    <% end %>
+
+
+  </div>
+</div>

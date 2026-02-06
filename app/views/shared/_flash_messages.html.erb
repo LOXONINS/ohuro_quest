@@ -1,0 +1,16 @@
+<% flash.each do |message_type, message| %>
+  <% 
+    alert_class = case message_type
+                  when 'notice' then 'bg-green-500'
+                  when 'alert' then 'bg-red-500'
+                  when 'success' then 'bg-blue-500'
+                  else 'bg-gray-500'
+                  end
+  %>
+  <div class="<%= alert_class %> text-white px-6 py-4 mb-4 mx-4 mt-4 rounded-lg shadow-lg flex items-center justify-between" role="alert">
+    <span><%= message %></span>
+    <button type="button" class="text-white hover:text-gray-200 ml-4" onclick="this.parentElement.remove()">
+      ✕
+    </button>
+  </div>
+<% end %>
