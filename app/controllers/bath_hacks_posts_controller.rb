@@ -5,6 +5,6 @@ class BathHacksPostsController < ApplicationController
   end
 
   def new
-    @bath_hacks_posts = BathHacksPost.new
+    @bath_hacks_post = BathHacksPost.new
   end
 end
