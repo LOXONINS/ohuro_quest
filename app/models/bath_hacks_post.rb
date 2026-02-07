@@ -1,0 +1,2 @@
+class BathHacksPost < ApplicationRecord
+end
