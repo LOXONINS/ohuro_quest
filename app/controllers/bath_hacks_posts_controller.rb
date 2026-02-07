@@ -24,6 +24,10 @@ class BathHacksPostsController < ApplicationController
     @bath_hacks_post = BathHacksPost.find(params[:id])
   end
 
+  def edit
+    @bath_hacks_post = current_user.bath_hacks_posts.find(params[:id])
+  end
+
   private
 
   def bath_hacks_post_params

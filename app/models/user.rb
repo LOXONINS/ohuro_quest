@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :bath_hacks_posts, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
+
+  def own?(object)
+    id == object.user_id
+  end
 end

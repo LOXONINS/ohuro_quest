@@ -1,12 +1,15 @@
-<div class="min-h-full py-8">
-  <div class="max-w-md mx-auto px-4">
+<div class="flex justify-between items-center mb-4">
 
-    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+    <div class="text-xs text-gray-500">
+      <%= @bath_hacks_post.user.name %> さん
+    </div>
 
-      <!-- 投稿者名 -->
-      <div class="text-xs text-gray-500 mb-2">
-        <%= @bath_hacks_post.user.name %> さん
+    <% if current_user.own?(bath_hacks_post) %>
+      <div class="flex gap-3">
+        <%= link_to "編集", edit_bath_hacks_post_path(@bath_hacks_post), class: "text-xs text-blue-600 hover:underline" %>
+        <%= link_to "削除", "#", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "text-xs text-red-600 hover:underline" %>
       </div>
+    <% end %>
 
       <!-- タイトル（全文） -->
       <h1 class="text-xl font-bold text-gray-900 mb-4">
@@ -20,8 +23,6 @@
       <div class="text-xs text-gray-400 text-right">
         <%= @bath_hacks_post.updated_at.strftime("%Y/%m/%d") %> 更新
       </div>
-
     </div>
-
   </div>
 </div>
