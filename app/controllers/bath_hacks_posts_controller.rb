@@ -43,7 +43,8 @@ class BathHacksPostsController < ApplicationController
   def destroy
     bath_hacks_post = current_user.bath_hacks_posts.find(params[:id])
     bath_hacks_post.destroy!
-    redirect_to bath_hacks_posts_path, success: "削除しました", status: :see_other
+    flash[:notice] = "削除しました"
+    redirect_to bath_hacks_posts_path, status: :see_other
   end
 
   private
