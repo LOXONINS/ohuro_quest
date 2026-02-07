@@ -1,5 +1,5 @@
 class BathHacksPostsController < ApplicationController
-    before_action :authenticate_user!, except: [ :index ]
+    before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
     @bath_hacks_posts = BathHacksPost.includes(:user).order(created_at: :desc)
@@ -18,6 +18,10 @@ class BathHacksPostsController < ApplicationController
       flash.now[:alert] = "投稿できませんでした"
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @bath_hacks_post = BathHacksPost.find(params[:id])
   end
 
   private
