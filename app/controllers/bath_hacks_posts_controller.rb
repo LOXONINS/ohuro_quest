@@ -10,11 +10,12 @@ class BathHacksPostsController < ApplicationController
   end
 
   def create
-	@bath_hacks_posts = current_user.bath_hacks_posts.build(bath_hacks_post_params)
-	if @bath_hacks_posts.save
-		redirect_to bath_hacks_posts_path, success: "投稿できました"
+	@bath_hacks_post = current_user.bath_hacks_posts.build(bath_hacks_post_params)
+	if @bath_hacks_post.save
+        flash[:notice] = "投稿に成功しました"
+		redirect_to bath_hacks_posts_path
 	else
-		flash.now[:alart] = "投稿できませんでした"
+		flash.now[:alert] = "投稿できませんでした"
 		render :new, status: :unprocessable_entity
 	end
   end
