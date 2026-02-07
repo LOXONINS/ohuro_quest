@@ -1,5 +1,5 @@
 class BathHacksPostsController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+    before_action :authenticate_user!, except: [ :index ]
 
   def index
     @bath_hacks_posts = BathHacksPost.includes(:user).order(created_at: :desc)
@@ -10,14 +10,14 @@ class BathHacksPostsController < ApplicationController
   end
 
   def create
-	@bath_hacks_post = current_user.bath_hacks_posts.build(bath_hacks_post_params)
-	if @bath_hacks_post.save
-        flash[:notice] = "投稿に成功しました"
-		redirect_to bath_hacks_posts_path
-	else
-		flash.now[:alert] = "投稿できませんでした"
-		render :new, status: :unprocessable_entity
-	end
+    @bath_hacks_post = current_user.bath_hacks_posts.build(bath_hacks_post_params)
+    if @bath_hacks_post.save
+      flash[:notice] = "投稿に成功しました"
+      redirect_to bath_hacks_posts_path
+    else
+      flash.now[:alert] = "投稿できませんでした"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
