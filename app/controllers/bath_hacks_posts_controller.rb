@@ -1,5 +1,6 @@
 class BathHacksPostsController < ApplicationController
     before_action :authenticate_user!, except: [ :index, :show ]
+    before_action :correct_user, only: [ :edit ]
 
   def index
     @bath_hacks_posts = BathHacksPost.includes(:user).order(created_at: :desc)
@@ -32,5 +33,11 @@ class BathHacksPostsController < ApplicationController
 
   def bath_hacks_post_params
     params.require(:bath_hacks_post).permit(:title, :content)
+  end
+
+  def correct_user
+    @bath_hacks_post = BathHacksPost.find(params[:id])
+    @user = @bath_hacks_post.user
+    redirect_to bath_hacks_posts_path, alert: "権限がありません" unless @bath_hacks_post.user == current_user
   end
 end
