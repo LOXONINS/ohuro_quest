@@ -45,7 +45,7 @@ class BathHacksPostsController < ApplicationController
     bath_hacks_post.destroy!
     redirect_to bath_hacks_posts_path, success: "削除しました", status: :see_other
   end
- 
+
   private
 
   def bath_hacks_post_params
