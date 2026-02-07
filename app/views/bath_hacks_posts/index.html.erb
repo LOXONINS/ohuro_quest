@@ -1,0 +1,9 @@
+<% if @bath_hacks_posts.present? %>
+  <div class="mt-6 space-y-4">
+    <%= render @bath_hacks_posts %>
+  </div>
+<% else %>
+  <div class="text-sm text-gray-500 text-center py-8">
+    投稿がありません
+  </div>
+<% end %>
