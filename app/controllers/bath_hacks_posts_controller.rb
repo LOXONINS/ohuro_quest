@@ -1,0 +1,2 @@
+class BathHacksPostsController < ApplicationController
+end
