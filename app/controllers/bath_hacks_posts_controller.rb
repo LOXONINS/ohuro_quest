@@ -1,6 +1,6 @@
 class BathHacksPostsController < ApplicationController
     before_action :authenticate_user!, except: [ :index, :show ]
-    before_action :correct_user, only: [ :edit ]
+    before_action :correct_user, only: [ :edit, :update ]
 
   def index
     @bath_hacks_posts = BathHacksPost.includes(:user).order(created_at: :desc)
@@ -29,6 +29,17 @@ class BathHacksPostsController < ApplicationController
     @bath_hacks_post = current_user.bath_hacks_posts.find(params[:id])
   end
 
+  def update
+    @bath_hacks_post = current_user.bath_hacks_posts.find(params[:id])
+    if @bath_hacks_post.update(bath_hacks_post_params)
+      flash[:notice] = "投稿に成功しました"
+      redirect_to bath_hacks_posts_path
+    else
+      flash.now[:alert] = "投稿できませんでした"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+ 
   private
 
   def bath_hacks_post_params
